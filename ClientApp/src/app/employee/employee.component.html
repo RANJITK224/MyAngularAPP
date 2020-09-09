@@ -1,0 +1,29 @@
+<h1>Employee Data</h1>
+<a href="#" routerLink="/employee/create/" class="btn btn-success">Create Employee</a>
+<table class='table' *ngIf="empdata">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>DOB</th>
+      <th>Mobile No</th>
+      <th>Email</th>
+      <th>Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of empdata">
+      <td>{{ emp.employeeId}}</td>
+      <td>{{ emp.firstName + " " + emp.lastName}}</td>
+      <td>{{ emp.dateOfBirth | date }}</td>
+      <td>{{ emp.phoneNumber }}</td>
+      <td>{{ emp.email }}</td>
+      <td>
+        <a href="#" [routerLink]="['/employee/', emp.employeeId, 'view']" class="btn btn-info">View</a>
+        <a href="#" [routerLink]="['/employee/', emp.employeeId, 'edit']" class="btn btn-primary">Edit</a>
+        <button type="button" (click)="deleteEmp(emp.employeeId)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

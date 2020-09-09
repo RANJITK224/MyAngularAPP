@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>View Employee</h1>
+
+  <a href="#" routerLink="/employee" class="btn btn-primary">Back</a>
+
+  <div *ngIf="empmodel">
+    <div class="form-group">
+      <label for="title">First Name</label>
+      <input id="firstName"
+             type="text"
+             [(ngModel)]="empmodel.firstName" readonly
+             class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="title">Last Name</label>
+      <input id="lastName"
+             type="text"
+             [(ngModel)]="empmodel.lastName" readonly
+             class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="body">DOB</label>
+      <input id="dateOfBirth"
+             type="text"
+             readonly
+             class="form-control"
+             value="{{empmodel.dateOfBirth | date }}">
+    </div>
+    <div class="form-group">
+      <label for="body">Phone No</label>
+      <input id="phoneNumber"
+             type="text"
+             [(ngModel)]="empmodel.phoneNumber" readonly
+             class="form-control" maxlength="10">
+    </div>
+    <div class="form-group">
+      <label for="body">Email</label>
+      <input id="email"
+             type="text"
+             [(ngModel)]="empmodel.email" readonly
+             class="form-control">
+    </div>
+
+  </div>
+  <div *ngIf="!empmodel">
+  No Record found
+  </div>
+
+</div>
